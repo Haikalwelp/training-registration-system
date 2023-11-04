@@ -11,21 +11,31 @@
                 </div>
 
                 <!-- Navigation Links -->
+                @php($user = Auth::user())
+                @if($user->role == 'admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('admin.manage-registration')" :active="request()->routeIs('admin.manage-registration')">
                         {{ __('Manage Registrations') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('admin.training-list')" :active="request()->routeIs('admin.training-list')">
                         {{ __('Manage Trainings') }}
                     </x-nav-link>
                 </div>
+                @else
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('user.user-dashboard')" :active="request()->routeIs('user.user-dashboard')">
+                        {{ __('My Dashboard') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('user.training-list')" :active="request()->routeIs('user.training-list')">
+                        {{ __('Apply Training') }}
+                    </x-nav-link>
+                </div>
+                @endif
+            
             </div>
 
             <!-- Settings Dropdown -->
