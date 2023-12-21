@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/user-dashboard', [\App\Http\Controllers\TrainingRegistrationController::class, 'getRegisteredTraining'])->name('user.user-dashboard');
     Route::get('/admin/manage-registration', [\App\Http\Controllers\TrainingRegistrationController::class, 'getManageRegistration'])->name('admin.manage-registration');
     Route::patch('/admin/edit-registration-status/{id}', [\App\Http\Controllers\TrainingRegistrationController::class, 'patchEditRegistrationStatus'])->name('admin.edit-registration-status');
+
+
     
 });
 

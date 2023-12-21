@@ -19,7 +19,7 @@ class TrainingController extends Controller
     }
     public function postAddTraining(Request $request){
 
-        $userId = auth()->user()->id;
+        $userId = /*predefined function in laravel*/ auth()->user()->id;
         $training = new Training();
         
         $this->validate($request, [
